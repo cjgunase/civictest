@@ -76,13 +76,13 @@ export default function LandingPage() {
                         className="text-5xl md:text-6xl font-black text-white leading-tight mb-6 drop-shadow-lg"
                         style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
                     >
-                        Prepare for Your<br />
-                        <span className="text-[#E8C97A]">U.S. Citizenship</span> Interview
+                        Pass the <span className="text-[#E8C97A]">2025 Citizenship Test</span><br />
+                        <span className="text-3xl md:text-4xl text-white/90">and New Civic Test</span>
                     </h1>
 
                     <p className="text-xl text-white/85 leading-relaxed max-w-2xl mb-10">
-                        Simulate a real USCIS civics interview, practice with flashcards, and study all
-                        128 official questions — completely free. Train like the interview is tomorrow.
+                        Simulate a real USCIS new citizenship test, practice with flashcards, and study all
+                        128 official questions for the 2025 civic test — completely free. Train like the interview is tomorrow.
                     </p>
 
                     <div className="flex items-center gap-4 flex-wrap justify-center">
@@ -118,7 +118,7 @@ export default function LandingPage() {
                         className="text-center text-4xl font-black text-[#002868] mb-12"
                         style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
                     >
-                        Everything You Need to Pass
+                        Everything You Need to Pass the New Citizenship Test
                     </h2>
 
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -207,7 +207,7 @@ export default function LandingPage() {
                         Your American Dream Starts Here
                     </h3>
                     <p className="text-lg text-white/80 mb-8">
-                        Join thousands of applicants preparing for the naturalization interview.
+                        Join thousands of applicants passing the new citizenship test and preparing for the naturalization interview.
                     </p>
                     <SignUpButton mode="modal">
                         <button className="inline-flex items-center gap-2.5 text-lg font-bold bg-white text-[#B22234] px-8 py-4 rounded-xl hover:bg-gray-100 transition shadow-xl active:scale-95">

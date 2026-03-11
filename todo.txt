@@ -1,0 +1,39 @@
+1. Optimized the Meta Tags in 
+
+layout.tsx
+ I updated the global Next.js metadata in 
+
+app/layout.tsx
+. I improved the title and description to include your focus keywords natively, and explicitly added an array of <meta name="keywords" .../>. I also set up OpenGraph data which helps with click-through rates (and indirectly SEO) when your URL is shared.
+
+2. Naturally Included the Keywords on the Landing Page (
+
+components/LandingPage.tsx
+) Search engines place immense value on Header Tags (<h1>, <h2>, etc.) and the surrounding paragraph text. I went into your landing page and integrated the target keywords smoothly so it doesn't look like keyword stuffing:
+
+Hero Title (H1): Changed to "Pass the 2025 Citizenship Test and New Civic Test"
+Hero Paragraph: Updated to explicitly state "Simulate a real USCIS new citizenship test... for the 2025 civic test..."
+Section Headers (H2): Changed to "Everything You Need to Pass the New Citizenship Test"
+Footer Call to Action (H3 subtext): Adjusted the text to "Join thousands of applicants passing the new citizenship test..."
+3. Added a Dynamic XML Sitemap (
+
+app/sitemap.ts
+) Search engine crawlers (like Googlebot) use sitemaps to properly ingest all the pages of your site. I created a robust 
+
+sitemap.ts
+ file that will automatically build your site index paths (like /, /study-guide, /practice, /interview).
+
+4. Added 
+
+robots.txt
+ (
+
+public/robots.txt
+) Created the standard 
+
+robots.txt
+ file which tells search engines they are freely allowed to index the non-API routes of your application and links them directly to the new sitemap.xml.
+
+What You Should Do Next
+If you've already deployed the application to Vercel (or your hosting platform), deploy these latest changes.
+Go to the Google Search Console and submit your domain address (and specifically the newly created https://yourdomain.com/sitemap.xml). Since this site revolves around 2025, getting Google to crawl these updates immediately via the Search Console is the quickest way to rise in the ranks!

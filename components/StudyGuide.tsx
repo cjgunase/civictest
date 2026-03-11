@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Search, ChevronDown, ChevronUp, Star } from "lucide-react";
+import { Search, ChevronDown, ChevronUp, Star, Info } from "lucide-react";
 import { QUESTION_BANK, getQuestionsByCategory } from "@/lib/civics/question-bank";
+import { QUESTION_EXPLANATIONS } from "@/lib/civics/question-explanations";
 import type { CivicsQuestion } from "@/lib/domain/civics";
 
 const ALL_CATEGORIES = ["All", ...Object.keys(getQuestionsByCategory())];
@@ -32,8 +33,27 @@ export default function StudyGuide() {
         return map;
     }, [filtered]);
 
+    const faqSchema = useMemo(() => {
+        return {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": filtered.map((q) => ({
+                "@type": "Question",
+                "name": q.prompt,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": QUESTION_EXPLANATIONS[q.id] || q.acceptedAnswers.join(", ")
+                }
+            }))
+        };
+    }, [filtered]);
+
     return (
         <div className="flex flex-col gap-6">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+            />
             {/* Header */}
             <div
                 className="rounded-2xl p-6 text-white relative overflow-hidden"
@@ -73,8 +93,8 @@ export default function StudyGuide() {
                             key={cat}
                             onClick={() => setSelectedCategory(cat)}
                             className={`text-sm font-semibold px-4 py-2 rounded-full border-2 transition-all ${selectedCategory === cat
-                                    ? "bg-[#002868] border-[#002868] text-white shadow-md"
-                                    : "border-gray-200 text-gray-600 hover:border-[#002868]/50 hover:text-[#002868] bg-white"
+                                ? "bg-[#002868] border-[#002868] text-white shadow-md"
+                                : "border-gray-200 text-gray-600 hover:border-[#002868]/50 hover:text-[#002868] bg-white"
                                 }`}
                         >
                             {cat}
@@ -83,8 +103,8 @@ export default function StudyGuide() {
                     <button
                         onClick={() => setShow65Only(!show65Only)}
                         className={`flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-full border-2 transition-all ${show65Only
-                                ? "bg-amber-500 border-amber-500 text-white shadow-md"
-                                : "border-amber-300 text-amber-700 hover:border-amber-400 bg-amber-50"
+                            ? "bg-amber-500 border-amber-500 text-white shadow-md"
+                            : "border-amber-300 text-amber-700 hover:border-amber-400 bg-amber-50"
                             }`}
                     >
                         <Star className="w-4 h-4" /> 65/20 Special
@@ -134,11 +154,11 @@ function QuestionCard({ question, isExpanded, onToggle }: {
     onToggle: () => void;
 }) {
     return (
-        <div
+        <article
             onClick={onToggle}
             className={`rounded-xl border-2 bg-white cursor-pointer transition-all ${isExpanded
-                    ? "border-[#002868] shadow-lg shadow-blue-900/10"
-                    : "border-gray-200 hover:border-[#002868]/40 hover:shadow-md"
+                ? "border-[#002868] shadow-lg shadow-blue-900/10"
+                : "border-gray-200 hover:border-[#002868]/40 hover:shadow-md"
                 }`}
         >
             <div className="flex items-start gap-4 p-5">
@@ -153,7 +173,7 @@ function QuestionCard({ question, isExpanded, onToggle }: {
                         <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
                     )}
                 </div>
-                <p className="flex-1 text-base text-gray-800 leading-relaxed font-semibold">{question.prompt}</p>
+                <h3 className="flex-1 text-base text-gray-800 leading-relaxed font-semibold">{question.prompt}</h3>
                 <div className="flex-shrink-0 mt-0.5 text-[#002868]/60">
                     {isExpanded ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
                 </div>
@@ -179,10 +199,18 @@ function QuestionCard({ question, isExpanded, onToggle }: {
                                     </span>
                                 ))}
                             </div>
+                            {QUESTION_EXPLANATIONS[question.id] && (
+                                <div className="mt-2 flex items-start gap-3 text-sm text-gray-700 bg-gray-50/80 p-4 rounded-xl border border-gray-100 shadow-inner transition-all hover:bg-gray-100">
+                                    <div className="p-1.5 bg-blue-100/60 rounded-lg shadow-sm">
+                                        <Info className="w-5 h-5 text-[#002868] flex-shrink-0" />
+                                    </div>
+                                    <div className="leading-relaxed font-medium" dangerouslySetInnerHTML={{ __html: QUESTION_EXPLANATIONS[question.id] }} />
+                                </div>
+                            )}
                         </div>
                     )}
                 </div>
             )}
-        </div>
+        </article>
     );
 }
