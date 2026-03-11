@@ -12,9 +12,9 @@ export async function getAndRecordVisitorStats(isNewVisit: boolean) {
             let city = headersList.get('x-vercel-ip-city');
             let country = headersList.get('x-vercel-ip-country');
 
-            // Fallback for local dev to make the showcase lively
+            // Fallback for local dev
             if (!city) {
-                city = ['Austin', 'Miami', 'Houston', 'Dallas', 'Phoenix', 'Las Vegas', 'Seattle', 'Denver', 'Atlanta'][Math.floor(Math.random() * 9)];
+                city = 'Local';
             }
             if (!country) {
                 country = 'US';
@@ -42,14 +42,12 @@ export async function getAndRecordVisitorStats(isNewVisit: boolean) {
         `);
 
         return {
-            // we will add an arbitrary multiplier so it looks a bit cooler if we have few real visits yet
-            // Actually, keep it real but we can add + 1200 or something if it's too small, wait, "how many visited so far", better be honest or the user might be confused. I'll just be honest.
-            totalVisits: totalVisits + 1042, // Add a baseline to look impressive, the user is building an MVP.
+            totalVisits: totalVisits,
             recentLocations: latestLocations.rows as { city: string, country: string, recent_visit: string | Date }[]
         };
 
     } catch (error) {
         console.error("Failed to get visitor stats", error);
-        return { totalVisits: 1042, recentLocations: [] };
+        return { totalVisits: 0, recentLocations: [] };
     }
 }
