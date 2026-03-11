@@ -43,7 +43,7 @@ next-env.d.ts
 # clerk configuration (can include secrets)
 /.clerk/
 
-# Pre-generated TTS audio files (large binaries — regenerate with `npm run tts:generate`)
-# manifest.json IS tracked in git (small JSON, version-controls URL mappings).
-/public/audio/tts/*.mp3
+# Pre-generated TTS audio files (cache)
+# Committing these to git to avoid regenerating on every Vercel deploy.
+# /public/audio/tts/*.mp3
 
