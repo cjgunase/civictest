@@ -13,10 +13,15 @@ export default function LandingPage() {
                 <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
                     <div className="flex items-center gap-3">
                         {/* Mini-flag stripes as logo mark */}
-                        <div className="w-8 h-6 rounded overflow-hidden flex flex-col">
-                            <div className="flex-1 bg-[#B22234]" />
-                            <div className="flex-1 bg-white" />
-                            <div className="flex-1 bg-[#B22234]" />
+                        <div className="relative w-8 h-6 rounded overflow-hidden shadow-sm border border-gray-200/50">
+                            <div className="absolute inset-0 flex flex-col">
+                                <div className="flex-1 bg-[#B22234]" />
+                                <div className="flex-1 bg-white" />
+                                <div className="flex-1 bg-[#B22234]" />
+                                <div className="flex-1 bg-white" />
+                                <div className="flex-1 bg-[#B22234]" />
+                            </div>
+                            <div className="absolute top-0 left-0 w-[45%] h-[53%] bg-[#002868]" />
                         </div>
                         <div>
                             <span

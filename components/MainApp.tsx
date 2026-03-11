@@ -35,10 +35,15 @@ export default function MainApp() {
                 <div className="px-6 py-6 border-b border-white/10">
                     <div className="flex items-center gap-3">
                         {/* Mini flag */}
-                        <div className="w-9 h-6 rounded overflow-hidden flex flex-col shadow-md">
-                            <div className="flex-1 bg-[#B22234]" />
-                            <div className="flex-1 bg-white" />
-                            <div className="flex-1 bg-[#B22234]" />
+                        <div className="relative w-9 h-6 rounded overflow-hidden shadow-md">
+                            <div className="absolute inset-0 flex flex-col">
+                                <div className="flex-1 bg-[#B22234]" />
+                                <div className="flex-1 bg-white/90" />
+                                <div className="flex-1 bg-[#B22234]" />
+                                <div className="flex-1 bg-white/90" />
+                                <div className="flex-1 bg-[#B22234]" />
+                            </div>
+                            <div className="absolute top-0 left-0 w-[45%] h-[53%] bg-[#002868]" />
                         </div>
                         <div>
                             <span
