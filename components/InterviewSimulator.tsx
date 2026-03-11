@@ -71,30 +71,7 @@ function OverviewScreen({ onStart }: { onStart: () => void }) {
                             <div className="bg-white rounded-2xl p-5 border shadow-sm border-gray-200 flex-1 mb-2 hover:border-[#002868]/30 transition-colors">
                                 <h3 className="text-lg font-bold text-[#002868] mb-1">{stage.title}</h3>
                                 <p className="text-gray-600 font-medium text-sm leading-relaxed">{stage.desc}</p>
-                                {i === 1 && (
-                                    <div className="mt-4 rounded-xl overflow-hidden shadow-md border-2 border-gray-100 bg-gray-50 aspect-video relative">
-                                        <iframe
-                                            className="absolute top-0 left-0 w-full h-full"
-                                            src="https://www.youtube.com/embed/MHjOVa6HGHI"
-                                            title="USCIS Naturalization Interview Video - The Oath"
-                                            frameBorder="0"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                            allowFullScreen
-                                        ></iframe>
-                                    </div>
-                                )}
-                                {i === 2 && (
-                                    <div className="mt-4 rounded-xl overflow-hidden shadow-md border-2 border-gray-100 bg-gray-50 aspect-video relative">
-                                        <iframe
-                                            className="absolute top-0 left-0 w-full h-full"
-                                            src="https://www.youtube.com/embed/mS8s8JFUhVw?start=13"
-                                            title="USCIS Naturalization Interview Video - Background Review"
-                                            frameBorder="0"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                            allowFullScreen
-                                        ></iframe>
-                                    </div>
-                                )}
+
                                 {i === 3 && (
                                     <div className="mt-5 pt-4 border-t border-gray-100 flex justify-start">
                                         <Button
