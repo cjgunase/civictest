@@ -1,3 +1,7 @@
+---
+trigger: manual
+---
+
 # PRD for a Voice-Optimized USCIS Naturalization Test Simulator
 
 ## Executive summary
