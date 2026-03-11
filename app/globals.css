@@ -42,88 +42,216 @@
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.58 0.22 27);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.809 0.105 251.813);
-  --chart-2: oklch(0.623 0.214 259.815);
-  --chart-3: oklch(0.546 0.245 262.881);
-  --chart-4: oklch(0.488 0.243 264.376);
-  --chart-5: oklch(0.424 0.199 265.638);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-}
+  /* US Flag Colors */
+  --usa-red: #B22234;
+  --usa-red-dark: #8B1A27;
+  --usa-red-light: #D94040;
+  --usa-blue: #002868;
+  --usa-blue-dark: #001f52;
+  --usa-blue-mid: #1a4a9e;
+  --usa-blue-light: #4a78c8;
+  --usa-white: #FFFFFF;
+  --usa-cream: #F8F5EE;
+  --usa-gold: #C9A84C;
+  --usa-gold-light: #E8C97A;
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.87 0.00 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.371 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.809 0.105 251.813);
-  --chart-2: oklch(0.623 0.214 259.815);
-  --chart-3: oklch(0.546 0.245 262.881);
-  --chart-4: oklch(0.488 0.243 264.376);
-  --chart-5: oklch(0.424 0.199 265.638);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: oklch(0.99 0 0);
+  --foreground: oklch(0.08 0.02 265);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.08 0.02 265);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.08 0.02 265);
+  --primary: #002868;
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.96 0.01 240);
+  --secondary-foreground: oklch(0.08 0.02 265);
+  --muted: oklch(0.96 0.01 240);
+  --muted-foreground: oklch(0.42 0.04 265);
+  --accent: oklch(0.93 0.03 240);
+  --accent-foreground: oklch(0.08 0.02 265);
+  --destructive: #B22234;
+  --border: oklch(0.88 0.02 240);
+  --input: oklch(0.88 0.02 240);
+  --ring: #002868;
+  --chart-1: #B22234;
+  --chart-2: #002868;
+  --chart-3: #C9A84C;
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.98 0.01 240);
+  --sidebar-foreground: oklch(0.08 0.02 265);
+  --sidebar-primary: #002868;
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.92 0.03 240);
+  --sidebar-accent-foreground: oklch(0.08 0.02 265);
+  --sidebar-border: oklch(0.88 0.02 240);
+  --sidebar-ring: #002868;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
   }
+
   html {
-    @apply font-sans;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
   }
+}
+
+/* ─── Patriotic Utilities ─────────────────────────────────────────────────── */
+
+.font-display {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.bg-usa-flag-gradient {
+  background: linear-gradient(135deg, var(--usa-blue) 0%, var(--usa-blue-dark) 50%, var(--usa-red) 100%);
+}
+
+.bg-usa-red-gradient {
+  background: linear-gradient(135deg, var(--usa-red) 0%, var(--usa-red-dark) 100%);
+}
+
+.bg-stars-gradient {
+  background: radial-gradient(ellipse at top, #1a1a4e 0%, #0d0d2b 60%, #1a0a0a 100%);
+}
+
+.text-usa-red {
+  color: var(--usa-red);
+}
+
+.text-usa-blue {
+  color: var(--usa-blue);
+}
+
+.text-usa-gold {
+  color: var(--usa-gold);
+}
+
+.border-usa-red {
+  border-color: var(--usa-red);
+}
+
+.border-usa-blue {
+  border-color: var(--usa-blue);
+}
+
+.border-usa-gold {
+  border-color: var(--usa-gold);
+}
+
+.bg-usa-red {
+  background-color: var(--usa-red);
+}
+
+.bg-usa-blue {
+  background-color: var(--usa-blue);
+}
+
+.bg-usa-red-light {
+  background-color: #FFF0F0;
+}
+
+.bg-usa-blue-light {
+  background-color: #E8F0FF;
+}
+
+/* Stars decoration */
+.stars-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.stars-bg::before {
+  content: '★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  font-size: 10px;
+  letter-spacing: 8px;
+  color: rgba(255, 255, 255, 0.12);
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 8px 12px;
+  pointer-events: none;
+}
+
+/* Red stripe decorative top bar */
+.usa-stripe-top {
+  border-top: 4px solid var(--usa-red);
+  box-shadow: 0 0 0 4px var(--usa-blue) inset, 0 0 0 8px var(--usa-red) inset;
+}
+
+/* Animated record pulse */
+@keyframes record-pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(178, 34, 52, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 0 16px rgba(178, 34, 52, 0);
+  }
+}
+
+.recording-pulse {
+  animation: record-pulse 1.5s ease-in-out infinite;
+}
+
+/* Eagle feather progress bar shimmer */
+@keyframes flag-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.progress-usa {
+  background: linear-gradient(90deg, var(--usa-blue) 0%, var(--usa-blue-light) 40%, var(--usa-red) 60%, var(--usa-red-light) 100%);
+  background-size: 200% auto;
+  animation: flag-shimmer 3s linear infinite;
+}
+
+/* Card hover lift */
+.card-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(60, 59, 110, 0.15);
+}
+
+/* Seal / badge styling */
+.usa-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, var(--usa-blue) 0%, var(--usa-blue-mid) 100%);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.usa-badge-red {
+  background: linear-gradient(135deg, var(--usa-red) 0%, var(--usa-red-dark) 100%);
 }

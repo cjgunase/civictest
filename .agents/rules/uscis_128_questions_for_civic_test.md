@@ -1,3 +1,7 @@
+---
+trigger: manual
+---
+
 M-1778 (09/25)
 U.S. Citizenship and Immigration Services
 

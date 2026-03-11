@@ -36,3 +36,7 @@ Standardize authentication and identity management on Clerk.
 - PRD: Architecture blueprint
 - PRD: Data model (User entity)
 - PRD: UX flows optimized for mobile + web
+
+## Test Accounts
+- Email: `cjgunase+clerk_test@example.com`
+- Password: `clerk_test`

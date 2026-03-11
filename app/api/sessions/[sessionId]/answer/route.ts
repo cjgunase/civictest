@@ -8,10 +8,16 @@ type Params = {
 };
 
 export async function POST(request: Request, { params }: Params): Promise<NextResponse> {
-  const { userId } = await auth();
+  const { userId, has } = await auth();
 
   if (!userId) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  // Protect route for Plus plan only
+  const isPlus = has ? has({ plan: "plus" } as any) : false;
+  if (!isPlus) {
+    return NextResponse.json({ error: "Premium feature. Please upgrade to the Plus plan." }, { status: 403 });
   }
 
   const { sessionId } = await params;
@@ -22,7 +28,7 @@ export async function POST(request: Request, { params }: Params): Promise<NextRe
   }
 
   try {
-    const session = answerSession({
+    const session = await answerSession({
       sessionId,
       userId,
       transcript: body.transcript,

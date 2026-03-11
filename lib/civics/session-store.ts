@@ -1,10 +1,23 @@
 import { randomUUID } from "node:crypto";
 
 import { createSessionView, submitAnswer } from "@/lib/civics/engine";
+import { gradeWithLLMFallback } from "@/lib/openai";
 import { QUESTION_BANK } from "@/lib/civics/question-bank";
 import type { CivicsQuestion, SessionState, SessionView } from "@/lib/domain/civics";
 
-const byId = new Map<string, SessionState>();
+const globalForCivics = globalThis as unknown as {
+  civicsSessions: Map<string, SessionState>;
+  civicsHistory: Map<string, SessionView[]>;
+};
+
+const byId = globalForCivics.civicsSessions || new Map<string, SessionState>();
+const historyByUser = globalForCivics.civicsHistory || new Map<string, SessionView[]>();
+
+if (process.env.NODE_ENV !== "production") {
+  globalForCivics.civicsSessions = byId;
+  globalForCivics.civicsHistory = historyByUser;
+}
+
 const questionBankById = new Map<string, CivicsQuestion>(QUESTION_BANK.map((item) => [item.id, item]));
 
 function buildQuestionOrder(): string[] {
@@ -14,15 +27,18 @@ function buildQuestionOrder(): string[] {
 
 function getStateOrThrow(id: string): SessionState {
   const state = byId.get(id);
-  if (!state) {
-    throw new Error("Session not found.");
-  }
+  if (!state) throw new Error("Session not found.");
   return state;
+}
+
+function archiveSession(userId: string, view: SessionView) {
+  if (!view.stopReason) return; // only archive completed sessions
+  const existing = historyByUser.get(userId) ?? [];
+  historyByUser.set(userId, [view, ...existing].slice(0, 20)); // keep last 20
 }
 
 export function startSession(userId: string): SessionView {
   const id = randomUUID();
-
   const state: SessionState = {
     id,
     userId,
@@ -36,45 +52,45 @@ export function startSession(userId: string): SessionView {
     currentQuestionIndex: 0,
     attempts: [],
   };
-
   byId.set(id, state);
-
   return createSessionView(state, questionBankById);
 }
 
 export function getSessionView(sessionId: string, userId: string): SessionView {
   const state = getStateOrThrow(sessionId);
-  if (state.userId !== userId) {
-    throw new Error("Forbidden");
-  }
-
+  if (state.userId !== userId) throw new Error("Forbidden");
   return createSessionView(state, questionBankById);
 }
 
-export function answerSession(params: {
+export async function answerSession(params: {
   sessionId: string;
   userId: string;
   transcript: string;
-}): SessionView {
+}): Promise<SessionView> {
   const state = getStateOrThrow(params.sessionId);
-  if (state.userId !== params.userId) {
-    throw new Error("Forbidden");
-  }
+  if (state.userId !== params.userId) throw new Error("Forbidden");
 
   const questionId = state.questionOrder[state.currentQuestionIndex];
   const question = questionId ? questionBankById.get(questionId) : null;
+  if (!question) throw new Error("No next question available.");
 
-  if (!question) {
-    throw new Error("No next question available.");
-  }
-
-  const updated = submitAnswer({
+  const updated = await submitAnswer({
     state,
     question,
     transcript: params.transcript,
+    fallbackGrader: gradeWithLLMFallback,
   });
 
   byId.set(state.id, updated.state);
 
-  return createSessionView(updated.state, questionBankById);
+  const view = createSessionView(updated.state, questionBankById);
+
+  // Archive once complete
+  archiveSession(params.userId, view);
+
+  return view;
+}
+
+export function getSessionHistory(userId: string): SessionView[] {
+  return historyByUser.get(userId) ?? [];
 }

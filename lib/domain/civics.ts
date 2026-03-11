@@ -10,7 +10,14 @@ export type StopReason =
 
 export type Verdict = "CORRECT" | "INCORRECT" | "UNCERTAIN";
 
-export type DynamicType = "PRESIDENT" | "SENATOR" | "REPRESENTATIVE" | "GOVERNOR";
+export type DynamicType =
+  | "PRESIDENT"
+  | "VICE_PRESIDENT"
+  | "SENATOR"
+  | "REPRESENTATIVE"
+  | "GOVERNOR"
+  | "SPEAKER"
+  | "CHIEF_JUSTICE";
 
 export type CivicsQuestion = {
   id: string;
@@ -18,6 +25,8 @@ export type CivicsQuestion = {
   acceptedAnswers: string[];
   isDynamicOfficial: boolean;
   dynamicType?: DynamicType;
+  category?: string;
+  isSpecial65?: boolean;
 };
 
 export type DynamicOfficialRecord = {
@@ -42,6 +51,7 @@ export type SessionAttempt = {
   graderVersion: string;
   reason: string;
   acceptedByVariant?: string;
+  acceptedAnswers?: string[];
   dynamicSnapshot?: DynamicOfficialsSnapshot;
   createdAt: string;
 };
@@ -73,6 +83,7 @@ export type SessionQuestionView = {
   isDynamicOfficial: boolean;
   dynamicType?: DynamicType;
   dynamicLastUpdated?: string;
+  acceptedAnswers?: string[];
 };
 
 export type SessionView = {
@@ -82,4 +93,5 @@ export type SessionView = {
   introScript: string;
   currentQuestion: SessionQuestionView | null;
   lastAttempt: SessionAttempt | null;
+  allAttempts?: SessionAttempt[];
 };
