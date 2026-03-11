@@ -51,7 +51,7 @@ DO NOT INCLUDE any HTML tags in your response. JUST the raw text of the fun hist
             const fact = response.choices[0].message.content?.trim() || "";
 
             // Append it to the HTML
-            const newHtml = `${originalHtml}<div class="mt-4 pt-4 border-t border-border/50"><h4 class="font-semibold text-primary mb-2 flex items-center gap-1.5">&#128DCDC; Fun History Fact</h4><p class="text-sm opacity-90">${fact}</p></div>`;
+            const newHtml = `${originalHtml}<div class="mt-4 pt-4 border-t border-border/50"><h4 class="font-semibold text-primary mb-2 flex items-center gap-1.5">&#128220; Fun History Fact</h4><p class="text-sm opacity-90">${fact}</p></div>`;
 
             newExplanations[question.id] = newHtml;
         } catch (e) {
