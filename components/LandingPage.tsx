@@ -95,14 +95,13 @@ export default function LandingPage() {
                     </h1>
 
                     <p className="text-xl text-white/85 leading-relaxed max-w-2xl mb-10">
-                        Simulate a real USCIS new citizenship test, practice with flashcards, and study all
-                        128 official questions for the 2025 civic test — completely free. Train like the interview is tomorrow.
+                        Study all 128 official questions for the 2025 civic test for free. Upgrade to simulate a real USCIS voice interview and use advanced practice flashcards. Train like the interview is tomorrow.
                     </p>
 
                     <div className="flex items-center gap-4 flex-wrap justify-center">
                         <SignUpButton mode="modal">
                             <button className="flex items-center gap-2.5 text-lg font-bold bg-[#B22234] text-white px-8 py-4 rounded-xl hover:bg-[#8B1A27] transition shadow-xl shadow-red-900/40 active:scale-95">
-                                Start Practicing Free
+                                Start Preparing Now
                                 <ArrowRight className="w-5 h-5" />
                             </button>
                         </SignUpButton>
@@ -197,7 +196,7 @@ export default function LandingPage() {
                 <div className="max-w-4xl mx-auto grid grid-cols-3 gap-8 text-center">
                     {[
                         { num: "128", label: "Official Questions" },
-                        { num: "100%", label: "Free to Use" },
+                        { num: "Free", label: "Study Guide" },
                         { num: "2025", label: "Updated Edition" },
                     ].map((s) => (
                         <div key={s.label}>
