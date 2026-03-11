@@ -19,3 +19,11 @@ export const userFlashcardStats = pgTable("user_flashcard_stats", {
     nextReviewDate: timestamp("next_review_date").notNull().defaultNow(),
     lastReviewedAt: timestamp("last_reviewed_at"),
 });
+
+export const siteVisitors = pgTable("site_visitors", {
+    id: integer().primaryKey().generatedAlwaysAsIdentity(),
+    ipHash: varchar({ length: 255 }), // Hash to avoid logging same user infinitely
+    city: varchar({ length: 255 }),
+    country: varchar({ length: 255 }),
+    visitedAt: timestamp("visited_at").notNull().defaultNow(),
+});

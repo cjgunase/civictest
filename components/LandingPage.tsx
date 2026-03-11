@@ -3,6 +3,7 @@
 import { SignInButton, SignUpButton } from "@clerk/nextjs";
 import { Mic, BookOpen, GraduationCap, ArrowRight, Star } from "lucide-react";
 import Image from "next/image";
+import LiveVisitorStats from "./LiveVisitorStats";
 
 export default function LandingPage() {
     return (
@@ -98,6 +99,9 @@ export default function LandingPage() {
                             </button>
                         </SignInButton>
                     </div>
+
+                    {/* Insert Live Visitor Showcase */}
+                    <LiveVisitorStats />
                 </div>
 
                 {/* Bottom wave / stripe */}
