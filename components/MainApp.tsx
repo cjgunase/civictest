@@ -102,7 +102,7 @@ export default function MainApp() {
 
                 {/* User section */}
                 <div className="px-5 py-4 border-t border-white/10 bg-[#001f52]">
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between mb-3">
                         <UserButton
                             appearance={{
                                 elements: {
@@ -118,6 +118,9 @@ export default function MainApp() {
                             Sign out
                         </button>
                     </div>
+                    <p className="text-[10px] text-white/40 leading-tight text-center">
+                        For educational purposes only. Not affiliated with or endorsed by USCIS.
+                    </p>
                 </div>
             </aside>
 

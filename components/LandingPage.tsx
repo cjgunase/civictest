@@ -8,6 +8,14 @@ import LiveVisitorStats from "./LiveVisitorStats";
 export default function LandingPage() {
     return (
         <main className="min-h-screen bg-white flex flex-col" style={{ fontFamily: "'Inter', sans-serif" }}>
+            {/* ── Government Disclaimer ── */}
+            <div className="bg-gray-100 border-b border-gray-200 text-center py-2 px-4">
+                <p className="text-xs font-semibold tracking-wide text-gray-600">
+                    <span className="font-bold text-gray-800 uppercase mr-1">Educational Purposes Only:</span>
+                    This is a non-governmental preparation site and is not affiliated with or endorsed by USCIS.
+                </p>
+            </div>
+
             {/* ── Top Nav ── */}
             <header className="sticky top-0 z-20 bg-white/95 backdrop-blur-sm border-b-2 border-[#002868]">
                 <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
